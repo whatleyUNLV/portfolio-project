@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>John Whatley - MIS753 Django Project Page</title>
+    <title>{{ blog.title }} - John Whatley - MIS753 Django Project Page</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -44,45 +44,26 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="https://twitter.com/unlvJohn" target="_blank">Twitter</a>
             <a class="nav-item nav-link" href="{% static 'JohnWhatleyResume.pdf' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
           </div>
         </div>
       </nav>
 </header>
 
 <main role="main">
+  <div class="container">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi, I'm John Whatley</h1>
-      <p class="lead text-muted">This is my first Django Web site. I'm having a great time learning to code websites using python and bootstrap. I think this will come in handy in the future and hope you will come back and check out all the cool new stuff I'm creating.</p>
-      <p>
-        <a href="mailto:johnwhatley@gmail.com" class="btn btn-primary my-2">Contact Me</a>
-      </p>
-      <img src="{% static 'johnandcooper_square.jpg' %}" width="200" />
-    </div>
-  </section>
+    <h1 class="text-center pt-3">{{ blog.title }}</h1>
+    <p class="text-center">{{ blog.pub_date_pretty }}<p />
+    <img class="img-fluid" src="{{ blog.image.url }}" />
+    <p>{{ blog.body }}</p>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img src="{{ job.image.url }}" style="wdith: 5rem;" " class="card-img-top" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>      {% endfor %}
-      </div>
-    </div>
   </div>
 
 </main>
 
+
+<br />
 <footer class="text-muted">
   <div class="container text-center">
     <p>&copy;{% now "Y" %} John Whatley - All Rights Reserved. Blah Blah Blah</p>
